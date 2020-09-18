@@ -7,7 +7,7 @@ config_dict = get_default_config()
 config_dict['language'] = 'ru'
 
 owm = pyowm.OWM('e064528ce83fca7a43f7737a49aba944')
-bot = telebot.TeleBot("1205896207:AAEdz5FD9fh5Uky1YXjHTSt5Nv6xruU_n04")
+bot = telebot.TeleBot("1387537120:AAGZLeT74HZOunv0inH5MMR4oddsRup4im0")
 
 #функция определения погода
 def get_weather(place):
