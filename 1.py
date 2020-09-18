@@ -48,7 +48,7 @@ def send_echo(message):
 			bot.send_message(message.chat.id, answer) #отправка сообщения
 
 	#обработка команды /help
-	elif message.text() == "/help":
+	elif message.text == "/help":
 		bot.send_message(message.chat.id, "Чтобы получить погоду - напиши команду /weather <город>")
 	else:
 		bot.send_message(message.chat.id, "Я тебя не понимаю, напиши /help")
