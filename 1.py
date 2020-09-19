@@ -2,14 +2,12 @@ import pyowm
 import telebot
 from pyowm.utils.config import get_default_config
 
-#поставить русский язык в модуле
 config_dict = get_default_config()
 config_dict['language'] = 'ru'
 
 owm = pyowm.OWM('e064528ce83fca7a43f7737a49aba944')
 bot = telebot.TeleBot("1387537120:AAGZLeT74HZOunv0inH5MMR4oddsRup4im0")
 
-#функция определения погода
 def get_weather(place):
 	mgr = owm.weather_manager() #менеджер погоды
 	observation = mgr.weather_at_place(place) #получить погоду в городе по его названию
@@ -32,8 +30,8 @@ def send_echo(message):
 		except pyowm.commons.exceptions.NotFoundError: #обработка ошибки не найден город
 			bot.send_message(message.chat.id, "Не найден город!")
 		else:
-			status = w[0] # [<цифра>] это индекс, из списков можно получить одну строку, в данном случае статус погоды
-			temp = w[1] #получить из списка температуру
+			status = w[0] #
+			temp = w[1]
 			answer = "В городе " + place + " сейчас " + status+ "\n" #ответ 1
 			answer += "Температура сейчас в районе " + str(int(temp)) + "\n\n" #ответ2
 
@@ -47,7 +45,7 @@ def send_echo(message):
 
 			bot.send_message(message.chat.id, answer) #отправка сообщения
 
-	#обработка команды /help
+
 	elif message.text == "/help":
 		bot.send_message(message.chat.id, "Чтобы получить погоду - напиши команду /weather <город>")
 	else:
